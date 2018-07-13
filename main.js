@@ -1,7 +1,7 @@
-var canvas = document.getElementById('canvas');
-var ctx = canvas.getContext("2d");
-var canvasColor = "#2a2e33";
-var pointColor = "#ffffff";
+let canvas = document.getElementById('canvas');
+let ctx = canvas.getContext("2d");
+let canvasColor = "#2a2e33";
+let pointColor = "#ffffff";
 
 canvas.setAttribute("width", window.innerWidth);
 canvas.setAttribute("height", window.innerHeight);
@@ -31,7 +31,7 @@ function point(x, y, radius, mass, color) {
     };
 }
 
-var points = [];
+let points = [];
 
 for(var i = 0; i < 300; i++) {
     var x = Math.floor(canvas.width * Math.random());
