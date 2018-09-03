@@ -13,13 +13,15 @@ ctx.fillRect(0, 0, canvas.width, canvas.height);
 function point(x, y, radius, mass, color) {
     this.x = x;
     this.y = y;
+    this.vx = 2 * Math.random() - 1;
+    this.vy = 2 * Math.random() - 1;
     this.radius = radius;
     this.mass = mass;
     this.color = color;
 
-    this.update = function() {
-        this.x += .5;
-        this.y += .5;
+    this.update = function(points) {
+        this.x += this.vx;
+        this.y += this.vy;
     };
 
     this.draw = function() {
