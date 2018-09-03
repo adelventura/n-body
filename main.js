@@ -1,5 +1,4 @@
 let canvas = document.getElementById('canvas');
-let ctx = canvas.getContext("2d");
 let canvasColor = "#2a2e33";
 let pointColor = "#ffffff";
 
@@ -11,9 +10,6 @@ function resize() {
 window.addEventListener("resize", resize);
 resize();
 canvas.setAttribute("style", "position: absolute; x:0; y:0;");
-
-ctx.fillStyle = canvasColor;
-ctx.fillRect(0, 0, canvas.width, canvas.height);
 
 function point(x, y, radius, mass, color) {
     this.x = x;
@@ -48,9 +44,8 @@ function point(x, y, radius, mass, color) {
         this.y += this.vy;
     };
 
-    this.draw = function() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, (Math.PI * 2));
+    this.draw = function(ctx) {
+        ctx.fillRect(this.x, this.y, 2, 2)
         ctx.fillStyle = this.color;
         ctx.fill();
         ctx.closePath();
@@ -67,6 +62,7 @@ for(let i = 0; i < 300; i++) {
 }
 
 function loop() {
+    let ctx = canvas.getContext("2d");
     ctx.fillStyle = canvasColor;
     ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
     ctx.fillRect(0, 0, canvas.width, canvas.height);
