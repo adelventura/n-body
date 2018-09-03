@@ -3,8 +3,13 @@ let ctx = canvas.getContext("2d");
 let canvasColor = "#2a2e33";
 let pointColor = "#ffffff";
 
-canvas.setAttribute("width", window.innerWidth);
-canvas.setAttribute("height", window.innerHeight);
+function resize() {
+    canvas.setAttribute("width", window.innerWidth);
+    canvas.setAttribute("height", window.innerHeight);
+}
+
+window.addEventListener("resize", resize);
+resize();
 canvas.setAttribute("style", "position: absolute; x:0; y:0;");
 
 ctx.fillStyle = canvasColor;
@@ -71,3 +76,4 @@ function loop() {
     }
     requestAnimationFrame(loop);
 }
+
