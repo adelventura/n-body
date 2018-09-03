@@ -45,7 +45,7 @@ function point(x, y, radius, mass, color) {
     };
 
     this.draw = function(ctx) {
-        ctx.fillRect(this.x, this.y, 2, 2)
+        ctx.fillRect(this.x, this.y, radius, radius)
         ctx.fillStyle = this.color;
         ctx.fill();
         ctx.closePath();
@@ -66,10 +66,10 @@ function loop() {
     ctx.fillStyle = canvasColor;
     ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
     ctx.fillRect(0, 0, canvas.width, canvas.height);
+
     for (let i = 0; i < points.length; i++) {
         points[i].update(points);
         points[i].draw(ctx);
     }
     requestAnimationFrame(loop);
 }
-
